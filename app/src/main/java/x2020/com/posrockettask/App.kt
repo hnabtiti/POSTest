@@ -8,7 +8,7 @@ import x2020.com.posrockettask.api.networkModule
 import x2020.com.posrockettask.api.serverRepository
 
 val moduleList = listOf(
-    networkModule, viewModelModule,
+    networkModule,
     serverRepository, DatabaseRepository,productsViewModel
 )
 
@@ -24,7 +24,6 @@ class App : Application() {
         super.onCreate()
         instance = this
         startKoin(this, moduleList)
-
     }
 
 }

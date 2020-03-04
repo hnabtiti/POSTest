@@ -14,9 +14,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import x2020.com.posrockettask.database.AppDatabase
 
 class MainActivity : AppCompatActivity() {
-
-    private val mainViewModel: MainViewModel by viewModel()
-//    private val appDatabase: AppDatabase by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,24 +23,5 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.fragmentContainer, newFragment)
         transaction.addToBackStack(null)
         transaction.commit()
-
-        mainViewModel.discounts.observe(this, Observer { data ->
-            Log.d("retrievedData", "$data")
-            data?.forEach {
-                it?.let {
-                    CoroutineScope(Dispatchers.IO).launch {
-//                        appDatabase.discountDao().insertAll(it)
-
-                    }
-
-                }
-
-            }
-        })
-
-        mainViewModel.doAction()
-        mainViewModel.doAction()
-        mainViewModel.doAction()
-
     }
 }
