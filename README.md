@@ -4,5 +4,5 @@ this an example of android app using
 2- koin for dependency injection 
 3- mvvm 
 4- live data 
-5- coroutines
+5- coroutines 
 6- room DB
