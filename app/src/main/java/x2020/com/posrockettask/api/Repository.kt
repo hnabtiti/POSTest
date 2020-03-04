@@ -45,18 +45,31 @@ fun provideForecastApi(retrofit: Retrofit): POSRocketServiceInterface =
 
 
 val serverRepository = module {
-    factory { Repository(get(),get()) }
+    factory { Repository(get(), get()) }
 }
 
-class Repository(private val service: POSRocketServiceInterface, private val appContext: Context? = null) {
+class Repository(
+    private val service: POSRocketServiceInterface,
+    private val appContext: Context? = null
+) {
     suspend fun discounts() = try {
         service.discounts()
     } catch (e: Exception) {
         appContext?.let {
-            CoroutineScope(Dispatchers.Main).launch{
-                Toast.makeText(appContext,"$e",Toast.LENGTH_SHORT).show()
+            CoroutineScope(Dispatchers.Main).launch {
+                Toast.makeText(appContext, "$e", Toast.LENGTH_SHORT).show()
             }
+        }
+        null
+    }
 
+    suspend fun extraCharges() = try {
+        service.extraCharges()
+    } catch (e: Exception) {
+        appContext?.let {
+            CoroutineScope(Dispatchers.Main).launch {
+                Toast.makeText(appContext, "$e", Toast.LENGTH_SHORT).show()
+            }
         }
         null
     }

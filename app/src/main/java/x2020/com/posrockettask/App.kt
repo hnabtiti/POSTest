@@ -9,8 +9,9 @@ import x2020.com.posrockettask.api.serverRepository
 
 val moduleList = listOf(
     networkModule, viewModelModule,
-    serverRepository, DatabaseRepository
+    serverRepository, DatabaseRepository,productsViewModel
 )
+
 
 class App : Application() {
 

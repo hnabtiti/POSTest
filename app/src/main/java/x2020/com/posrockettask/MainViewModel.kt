@@ -21,8 +21,15 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
     val discounts by lazy {
 
         liveData(Dispatchers.IO) {
-
             val retrievedData = repository.discounts()
+            Log.d("retrievedData","retrievedData")
+            emit(retrievedData)
+        }
+    }
+    val extraCharges by lazy {
+
+        liveData(Dispatchers.IO) {
+            val retrievedData = repository.extraCharges()
             Log.d("retrievedData","retrievedData")
             emit(retrievedData)
         }
