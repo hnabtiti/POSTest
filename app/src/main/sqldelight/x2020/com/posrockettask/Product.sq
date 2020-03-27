@@ -1,0 +1,39 @@
+CREATE TABLE product (
+ productId TEXT NOT NULL,
+ name TEXT NOT NULL,
+ price REAL NOT NULL,
+ discount_name TEXT,
+ discount_rate REAL,
+ extra_charge_name TEXT,
+ extra_charge_rate REAL,
+ PRIMARY KEY(productId));
+
+selectAll:
+SELECT *
+FROM product
+ORDER BY name;
+
+insertOrReplace:
+INSERT OR REPLACE INTO product(
+productId,
+  name,
+  price,
+  discount_name,
+  discount_rate,
+  extra_charge_name,
+  extra_charge_rate
+)
+VALUES ( ?,?, ?, ?, ? , ? , ?);
+
+selectByName:
+SELECT *
+FROM product
+WHERE name = ?;
+
+empty:
+DELETE FROM product;
+
+deleteByName:
+DELETE
+FROM product
+WHERE name = ?;

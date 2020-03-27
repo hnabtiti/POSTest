@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.discound_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import x2020.com.posrockettask.api.Product
 
 
 class ProductsFragment : Fragment() {

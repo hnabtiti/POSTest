@@ -1,0 +1,42 @@
+CREATE TABLE Orders (
+orderId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+customerId INTEGER NOT NULL,
+productId TEXT NOT NULL,
+FOREIGN KEY(productId)
+REFERENCES product(productId)
+ON UPDATE NO ACTION ON DELETE NO ACTION);
+
+selectAll:
+SELECT *
+FROM Orders;
+
+insertOrReplace:
+INSERT OR REPLACE INTO Orders(
+  orderId,
+  customerId,
+  productId
+)
+VALUES (?, ?, ? );
+
+selectByCustomerId:
+SELECT *
+FROM Orders
+WHERE customerId = ?;
+
+selectByOrderId:
+SELECT *
+FROM Orders
+WHERE orderId = ?;
+
+selectByProductId:
+SELECT *
+FROM Orders
+WHERE productId = ?;
+
+empty:
+DELETE FROM Orders;
+
+deleteByOrderId:
+DELETE
+FROM Orders
+WHERE orderId = ?;

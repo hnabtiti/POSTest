@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.product.view.*
+import x2020.com.posrockettask.api.Product
 
 
 class ProductsAdapter(private val list: List<Product>) : RecyclerView.Adapter<ProductViewHolder>() {

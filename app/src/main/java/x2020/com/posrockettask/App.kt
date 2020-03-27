@@ -1,15 +1,18 @@
 package x2020.com.posrockettask
 
 import android.app.Application
-import android.content.Context
 import org.koin.android.ext.android.startKoin
-import x2020.com.posrockettask.database.DatabaseRepository
 import x2020.com.posrockettask.api.networkModule
 import x2020.com.posrockettask.api.serverRepository
+import x2020.com.posrockettask.database.room.DatabaseRepository
+import x2020.com.posrockettask.database.sqldelight.sqlDeliDatabase
 
 val moduleList = listOf(
     networkModule,
-    serverRepository, DatabaseRepository,productsViewModel
+    serverRepository,
+    productsViewModel,
+    DatabaseRepository,
+    sqlDeliDatabase
 )
 
 
